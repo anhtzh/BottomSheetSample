@@ -20,6 +20,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.support.design.widget.BottomSheetBehavior.STATE_EXPANDED;
+
 public class BottomSheetActivity extends AppCompatActivity {
 
     private TextView mStateText;
@@ -62,9 +64,10 @@ public class BottomSheetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Let's peek it, programmatically
-                View peakView = findViewById(R.id.drag_me);
-                mBottomSheetBehavior.setPeekHeight(peakView.getHeight());
-                peakView.requestLayout();
+//                View peakView = findViewById(R.id.drag_me);
+//                mBottomSheetBehavior.setPeekHeight(peakView.getHeight());
+//                peakView.requestLayout();
+                mBottomSheetBehavior.setState(STATE_EXPANDED);
             }
         });
         View modal = findViewById(R.id.as_modal);
@@ -100,7 +103,7 @@ public class BottomSheetActivity extends AppCompatActivity {
                 return R.string.collapsed;
             case BottomSheetBehavior.STATE_DRAGGING:
                 return R.string.dragging;
-            case BottomSheetBehavior.STATE_EXPANDED:
+            case STATE_EXPANDED:
                 return R.string.expanded;
             case BottomSheetBehavior.STATE_HIDDEN:
                 return R.string.hidden;
